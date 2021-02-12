@@ -1,5 +1,18 @@
 server:
   port: 9000
+spring:
+  application:
+  cloud:
+    gatway:
+      routes:
+        - id: USER-SERVICE
+          uri:lb//USER-SERVICE
+          predicates:
+            - Path=/users/**
+        - id: DEPARTMENT-SERVICE
+          uri:lb//DEPARTMENT-SERVICE
+          predicates:
+            - Path=/departments/**
 eureka:
   client:
     register-with-eureka: true
