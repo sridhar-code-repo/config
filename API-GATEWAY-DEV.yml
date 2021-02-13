@@ -1,22 +1,21 @@
 server:
-  port: 9000
+  port: 9001
 spring:
   cloud:
-    gatway:
+    gateway:
       routes:
         - id: USER-SERVICE
-          uri: http://localhost:8090
+          uri: lb://USER-SERVICE
           predicates:
-            - Path= /users/**
+            - Path=/users/**
         - id: DEPARTMENT-SERVICE
           uri: lb://DEPARTMENT-SERVICE
           predicates:
-            - Path= /departments/**
+            - Path=/departments/**
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8080/eureka
+    service-url.defaultZone: http://localhost:8080/eureka
   instance:
     hostname: localhost
