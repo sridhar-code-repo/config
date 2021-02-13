@@ -5,7 +5,7 @@ spring:
     gatway:
       routes:
         - id: USER-SERVICE
-          uri: lb://USER-SERVICE
+          uri: http://localhost:8090
           predicates:
             - Path= /users/**
         - id: DEPARTMENT-SERVICE
