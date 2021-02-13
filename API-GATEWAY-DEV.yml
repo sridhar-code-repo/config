@@ -7,11 +7,11 @@ spring:
         - id: USER-SERVICE
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/users/**
+            - Path= /users/**
         - id: DEPARTMENT-SERVICE
           uri: lb://DEPARTMENT-SERVICE
           predicates:
-            - Path=/departments/**
+            - Path= /departments/**
 eureka:
   client:
     register-with-eureka: true
